@@ -97,7 +97,8 @@ class Game {
         // C38  SA
         if (index === player.index) {
           stroke(10);
-          fill("red");
+          //Utilize o código ' fill("red");' para definir uma bolinha vermelha abaixo do carro que você está controlando
+          ???
           ellipse(x, y, 60, 60);
 
           this.handleFuel(index);
@@ -110,7 +111,7 @@ class Game {
         }
       }
 
-      // manipulação dos eventos do teclado
+      /
       if (keyIsDown(UP_ARROW)) {
         player.positionY += 10;
         player.update();
@@ -122,11 +123,9 @@ class Game {
   }
 
   handleFuel(index) {
-    // Adicione o combustível
     cars[index - 1].overlap(fuels, function(collector, collected) {
       player.fuel = 185;
-      //collected (coletado) é o sprite no grupo de colecionáveis que desencadeia
-      //o evento
+      
       collected.remove();
     });
   }
@@ -135,36 +134,45 @@ class Game {
     cars[index - 1].overlap(powerCoins, function(collector, collected) {
       player.score += 21;
       player.update();
-      //ccollected (coletado) é o sprite no grupo de colecionáveis que desencadeia
-      //o evento
       collected.remove();
     });
   }
 
 handleResetButton() {
-  this.resetButton.mousePressed(() => {
+  /*Na linha 32 do form.js, você utilizou uma função que é utilizada 
+  quando o botão for clicado
+  Faça o mesmo com a linha abaixo */
+  this.resetButton.???(() => {
     database.ref("/").set({
       playerCount: 0,
-      gameState: 0,
+      /* Na linha acima, você definiu que a contagem de jogadores para 0
+      Faça o mesmo com o gameState e também defina ele para 0 */
       players: {}
     });
-    window.location.reload();
+    //Utilize o código 'window.location.reload();', pois ele recarrega a página
+    //??
   });
 }
 handlePlayerControls() {
-  if (keyIsDown(UP_ARROW)) {
+  /*Utilize o código 'keyIsDown', pois ele significa 'pressionar para baixa*/
+  if (???(UP_ARROW)) {
     player.positionY += 10;
     player.update();
   }
 
-  if (keyIsDown(LEFT_ARROW) && player.positionX > width / 3 - 50) {
+  if (???(LEFT_ARROW) && player.positionX > width / 3 - 50) {
     player.positionX -= 5;
     player.update();
   }
-
-  if (keyIsDown(RIGHT_ARROW) && player.positionX < width / 2 + 300) {
-    player.positionX += 5;
-    player.update();
+ 
+  if (???(RIGHT_ARROW) && player.positionX < width / 2 + 300) {
+   /* Na linha 166 e 167, foi programado que...
+   a posição do player no eixo x irá mudar para +5
+   e o jogador aparecerá nessa nova posição
+   
+   Faça o mesmo quando você pressiona a tecla para direita
+   Lembrando que para direita o número é positivo*/
+    ???
   }
 }
 }
